@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // the card items
   const cardArray = [
     {
       name: 'fries',
@@ -18,18 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   ]
   // console.log(cardArray)
-  // get grid
+  // get grid from html document
   const grid = document.querySelector('.grid')
+  // get result from html document
   const result = document.querySelector('#result')
+  // get new-game-btn from html document
   const newGameBtn = document.querySelector('#new-game')
   // cards chosen
   let cardChosen = []
+  // cards id
   let cardChosenId = []
   // let score = 0
   const cardsWon = []
-  cardArray.sort(() => 0.5 - Math.random)
-
-  // creates a board after execution
+  cardArray.sort(() => 0.5 - Math.random())
 
   // display result
   function resultDisplay() {
@@ -56,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // eslint-disable-next-line no-alert
       alert('Sorry , you chose wrong cards')
     }
+    // eslint-disable-next-line no-use-before-define
+    cards[optionOneId].removeEventListener('click', flipcard)
+    // eslint-disable-next-line no-use-before-define
+    cards[optionTwoId].removeEventListener('click', flipcard)
     cardChosen = []
     cardChosenId = []
     resultDisplay()
