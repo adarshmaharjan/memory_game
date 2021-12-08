@@ -50,6 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('You found a match')
       cards[optionOneId].setAttribute('src', './images/white.png')
       cards[optionTwoId].setAttribute('src', './images/white.png')
+      // eslint-disable-next-line no-use-before-define
+      cards[optionOneId].removeEventListener('click', flipcard)
+      // eslint-disable-next-line no-use-before-define
+      cards[optionTwoId].removeEventListener('click', flipcard)
       cardsWon.push(cardChosen)
       localStorage.setItem('score', cardsWon.length)
     } else {
@@ -58,10 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // eslint-disable-next-line no-alert
       alert('Sorry , you chose wrong cards')
     }
-    // eslint-disable-next-line no-use-before-define
-    cards[optionOneId].removeEventListener('click', flipcard)
-    // eslint-disable-next-line no-use-before-define
-    cards[optionTwoId].removeEventListener('click', flipcard)
+
     cardChosen = []
     cardChosenId = []
     resultDisplay()
